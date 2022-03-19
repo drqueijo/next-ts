@@ -52,12 +52,6 @@ const Navbar = () => {
                name='Resume'
                route='/resume'
             />
-            <NavItem
-               active={active}
-               setActive={setActive}
-               name='Projects'
-               route='/projects'
-            />
          </div>
       </div>
    )
