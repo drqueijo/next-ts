@@ -1,20 +1,20 @@
 import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  GetStaticProps,
-  GetStaticPropsContext,
   NextPage,
 } from "next";
+import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
 import ServiceCard from "../components/ServiceCard";
 import { services } from "../data";
-import { Service } from "../types";
+
 
 const About: NextPage = () => {
+
+  let { t } = useTranslation()
 
   return (
     <div className="flex flex-col flex-grow px-6 pt-1 ">
       <h6 className="my-3 text-base font-medium">
-        I am a programmer avid for knowledge in several areas of science and human activity, with a great interest in cognitive psychology and ergonomics, in addition to the arts, of course. This interest leads me to constant improvement and good results in my work as a frontend developer.
+        {t('home:hello')}
       </h6>
       <div
         className="flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100 "

@@ -1,11 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 import { GiTie } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from 'next/link'
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const { theme, setTheme } = useTheme();
+  let router = useRouter()
 
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -14,7 +18,7 @@ const Sidebar = () => {
   return (
     <>
       <img
-        src="https://media-exp1.licdn.com/dms/image/C4D03AQHR-LCGJIrISQ/profile-displayphoto-shrink_200_200/0/1585114845123?e=1647475200&v=beta&t=oiCHhoDwr4rZxHA88Iq7A4BAN4yYEKnAxPNn5UCqUPI"
+        src="/images/1585114845123.jpg"
         alt="avatar"
         className=" mx-auto border rounded-full "
         height="128px"
@@ -53,8 +57,6 @@ const Sidebar = () => {
         <p className="my-2"> +55 44 9 9995 2330 </p>
       </div>
 
-      {/* Email Button */}
-
       <button
         className="w-8/12 px-5 py-2 text-white bg-black rounded-full cursor-pointer bg-gradient-to-r from-green to-blue-500 hover:scale-105 focus:outline-none"
         onClick={() => window.open("mailto:silveriomat1234@gmail.com")}
@@ -67,6 +69,17 @@ const Sidebar = () => {
       >
         Toggle Theme
       </button>
+      <div>
+        <ul>
+          {router.locales.map((locale) => (
+            <li key={locale}>
+              <Link href={router.asPath} locale={locale}>
+                <a>{locale}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
